@@ -5,32 +5,32 @@ package seedu.addressbook.data.person;
  */
 public abstract class Contact {
     
-    protected String _value;
-    protected boolean _isPrivate;
+    public final String value;
+    public final boolean isPrivate;
     
     protected Contact(String value, boolean isPrivate) {
-        _value = value;
-        _isPrivate = isPrivate;
+        this.value = value;
+        this.isPrivate = isPrivate;
     }
     
     @Override
     public String toString() {
-        return _value;
+        return value;
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Contact // instanceof handles nulls
-                && this._value.equals(((Contact) other)._value)); // state check
+                && this.value.equals(((Contact) other).value)); // state check
     }
 
     @Override
     public int hashCode() {
-        return _value.hashCode();
+        return value.hashCode();
     }
 
     public boolean isPrivate() {
-        return _isPrivate;
+        return isPrivate;
     }
 }
