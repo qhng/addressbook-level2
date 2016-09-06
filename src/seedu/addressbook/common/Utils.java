@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import seedu.addressbook.data.person.Printable;
+
 /**
  * Utility methods
  */
@@ -34,5 +36,21 @@ public class Utils {
             }
         }
         return true;
+    }
+    
+    /**
+     * Concatenates a list of printables into a single String
+     * @param printables list of items to be printed
+     * @return
+     */
+    public static String getPrintableString(Printable... printables) {
+        StringBuilder sb = new StringBuilder();
+        for (Printable p : printables) {
+            sb.append(p.getPrintableString() + " ");
+        }
+        if (printables.length > 0) {
+            sb.setLength(sb.length() - 1); // trimming off the last whitespace
+        }
+        return sb.toString();
     }
 }
